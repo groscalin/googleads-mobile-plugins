@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 
+import com.unity3d.player.UnityPlayer;
+
 /**
  * This class represents the native implementation for the Google Mobile Ads Unity plugin. This
  * class is used to request Google Mobile ads natively via the Google Mobile Ads library in Google
@@ -202,5 +204,10 @@ public class Banner {
         }
       }
     });
+  }
+
+  //amugana ( amugana@bitmango.com ) Last modified at : 2014.11.21
+  public static int getBannerHeightInPixel(AdSize adSize) {
+    return adSize.getHeightInPixels(UnityPlayer.currentActivity);
   }
 }
