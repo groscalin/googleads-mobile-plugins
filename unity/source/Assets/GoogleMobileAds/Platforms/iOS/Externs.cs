@@ -67,6 +67,9 @@ namespace GoogleMobileAds.iOS
         [DllImport("__Internal")]
         internal static extern void GADURequestBannerAd(IntPtr bannerView, IntPtr request);
 
+        [DllImport("__Internal")]
+        internal static extern int GADUGetBannerHeightInPixel(int width, int height);
+
         #endregion
 
         #region Interstitial externs

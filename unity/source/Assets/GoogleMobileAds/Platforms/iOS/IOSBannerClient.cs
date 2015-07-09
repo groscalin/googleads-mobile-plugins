@@ -119,6 +119,11 @@ namespace GoogleMobileAds.iOS
             BannerViewPtr = IntPtr.Zero;
         }
 
+        public static int GetBannerHeightInPixel(AdSize adSize)
+        {
+            return Externs.GADUGetBannerHeightInPixel(adSize.Width, adSize.Height);
+        }
+
         #endregion
 
         #region Banner callback methods

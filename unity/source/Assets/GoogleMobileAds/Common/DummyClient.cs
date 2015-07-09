@@ -56,5 +56,12 @@ namespace GoogleMobileAds.Common
         {
             Debug.Log("Dummy SetInAppPurchaseParams");
         }
+
+        public static int GetBannerHeightInPixel(AdSize adSize)
+        {
+            Debug.Log("Dummy GetBannerHeightInPixel");
+            return 60;
+        }
+        
     }
 }

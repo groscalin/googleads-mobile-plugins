@@ -50,6 +50,13 @@ namespace GoogleMobileAds.Android
         {
             bannerView.Call("destroy");
         }
+
+        public static int GetBannerHeightInPixel(AdSize adSize)
+        {
+            using ( var pluginClass = new AndroidJavaClass("com.google.unity.ads.Banner"))
+                return pluginClass.CallStatic<int>("getBannerHeightInPixel", Utils.GetAdSizeJavaObject(adSize));
+        }
+        
     }
 }
 

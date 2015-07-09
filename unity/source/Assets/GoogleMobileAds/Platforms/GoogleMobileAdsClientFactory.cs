@@ -37,5 +37,19 @@ namespace GoogleMobileAds
                 return new GoogleMobileAds.Common.DummyClient(listener);
             #endif
         }
+
+        internal static int GetBannerHeightInPixel (AdSize adSize)
+        {
+            #if UNITY_EDITOR
+                return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
+            #elif UNITY_ANDROID
+                return GoogleMobileAds.Android.AndroidBannerClient.GetBannerHeightInPixel(adSize);
+            #elif UNITY_IPHONE
+                return GoogleMobileAds.iOS.IOSBannerClient.GetBannerHeightInPixel(adSize);
+            #else
+                return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
+            #endif
+        }
+        
     }
 }

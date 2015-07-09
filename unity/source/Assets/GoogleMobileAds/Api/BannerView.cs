@@ -46,6 +46,12 @@ namespace GoogleMobileAds.Api
             client.DestroyBannerView();
         }
 
+        // Get BannerHeight in pixel unit.
+        public static int GetBannerHeightInPixel(AdSize adSize)
+        {
+            return GoogleMobileAdsClientFactory.GetBannerHeightInPixel(adSize);
+        }
+
         #region IAdListener implementation
 
         // The following methods are invoked from an IGoogleMobileAdsClient. Forward these calls
