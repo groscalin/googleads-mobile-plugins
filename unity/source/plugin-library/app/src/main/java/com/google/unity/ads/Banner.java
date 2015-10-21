@@ -206,9 +206,7 @@ public class Banner {
     });
   }
 
-  /**
-   * Gets Banner height in pixel unit
-   */
+  //amugana ( amugana@bitmango.com ) Last modified at : 2014.11.21
   public static int getBannerHeightInPixel(AdSize adSize) {
     return adSize.getHeightInPixels(UnityPlayer.currentActivity);
   }

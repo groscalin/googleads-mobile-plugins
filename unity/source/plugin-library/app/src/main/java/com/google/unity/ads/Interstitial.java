@@ -107,6 +107,7 @@ public class Interstitial {
         if (interstitial.isLoaded()) {
           isLoaded = false;
           interstitial.show();
+          activity.overridePendingTransition(0, 0);
         } else {
           Log.d(PluginUtils.LOGTAG, "Interstitial was not ready to be shown.");
         }
