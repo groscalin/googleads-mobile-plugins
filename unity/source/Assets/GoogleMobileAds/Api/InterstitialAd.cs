@@ -88,25 +88,17 @@ namespace GoogleMobileAds.Api
 
         #region IInAppPurchaseListener implementation
 
-        bool IInAppPurchaseListener.FireIsValidPurchase(string sku)
+        void IInAppPurchaseListener.FireOnInAppPurchaseRequested(IInAppPurchaseResult result)
         {
             if (handler != null) {
-                return handler.IsValidPurchase(sku);
-            }
-            return false;
-        }
-
-        void IInAppPurchaseListener.FireOnInAppPurchaseFinished(IInAppPurchaseResult result)
-        {
-            if (handler != null) {
-                handler.OnInAppPurchaseFinished(result);
+                handler.OnInAppPurchaseRequested(result);
             }
         }
 
         public void SetInAppPurchaseHandler(IInAppPurchaseHandler handler)
         {
             this.handler = handler;
-            client.SetInAppPurchaseParams(this, handler.AndroidPublicKey);
+            client.SetInAppPurchaseHandler(this);
         }
 
         #endregion

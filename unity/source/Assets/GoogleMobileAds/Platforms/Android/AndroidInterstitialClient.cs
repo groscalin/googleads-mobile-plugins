@@ -42,11 +42,11 @@ namespace GoogleMobileAds.Android
         }
 
         public void DestroyInterstitial() {
-            interstitial.Call("destroy");
+            interstitial.Call("close");
         }
 
-        public void SetInAppPurchaseParams(IInAppPurchaseListener listener, string publicKey) {
-            interstitial.Call("setPlayStorePurchaseParams", new InAppPurchaseListener(listener), publicKey);
+        public void SetInAppPurchaseHandler(IInAppPurchaseListener listener) {
+            interstitial.Call("setInAppPurchaseListener", new InAppPurchaseListener(listener));
         }
 
         #endregion

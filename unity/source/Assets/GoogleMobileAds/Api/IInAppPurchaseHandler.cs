@@ -5,8 +5,6 @@ namespace GoogleMobileAds.Api
 {
     public interface IInAppPurchaseHandler
     {
-        void OnInAppPurchaseFinished(IInAppPurchaseResult result);
-        bool IsValidPurchase(string sku);
-        string AndroidPublicKey { get; }
+        void OnInAppPurchaseRequested(IInAppPurchaseResult inAppPurchase);
     }
 }

@@ -9,20 +9,14 @@ namespace GoogleMobileAds.Android
     {
         private IInAppPurchaseListener listener;
         internal InAppPurchaseListener(IInAppPurchaseListener listener)
-            : base(Utils.PlayStorePurchaseListenerClassName)
+            : base(Utils.InAppPurchaseListenerClassName)
         {
             this.listener = listener;
         }
 
-        bool isValidPurchase(string sku) {
-            return listener.FireIsValidPurchase(sku);
-        }
-
-        void onInAppPurchaseFinished(AndroidJavaObject result) {
+        void onInAppPurchaseRequested(AndroidJavaObject result) {
             InAppPurchaseResult wrappedResult = new InAppPurchaseResult(result);
-            if (wrappedResult.IsSuccessful && wrappedResult.IsVerified) {
-                listener.FireOnInAppPurchaseFinished(wrappedResult);
-            }
+            listener.FireOnInAppPurchaseRequested(wrappedResult);
         }
     }
 }

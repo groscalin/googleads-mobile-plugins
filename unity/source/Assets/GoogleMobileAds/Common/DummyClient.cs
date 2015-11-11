@@ -52,7 +52,7 @@ namespace GoogleMobileAds.Common
             Debug.Log("Dummy DestroyInterstitial");
         }
 
-        public void SetInAppPurchaseParams(IInAppPurchaseListener listener, string androidPublicKey)
+        public void SetInAppPurchaseHandler(IInAppPurchaseListener listener)
         {
             Debug.Log("Dummy SetInAppPurchaseParams");
         }
@@ -62,6 +62,5 @@ namespace GoogleMobileAds.Common
             Debug.Log("Dummy GetBannerHeightInPixel");
             return 60;
         }
-        
     }
 }

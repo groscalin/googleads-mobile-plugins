@@ -22,6 +22,8 @@ namespace GoogleMobileAds.Android
                 "com.google.android.gms.ads.mediation.admob.AdMobExtras";
         public const string PlayStorePurchaseListenerClassName =
             "com.google.android.gms.ads.purchase.PlayStorePurchaseListener";
+        public const string InAppPurchaseListenerClassName = 
+            "com.google.android.gms.ads.purchase.InAppPurchaseListener";
 
         #endregion
 
