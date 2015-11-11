@@ -1,4 +1,4 @@
-namespace GoogleMobileAds.Api {
+﻿namespace GoogleMobileAds.Api {
     public class AdSize {
         private bool isSmartBanner;
         private int width;

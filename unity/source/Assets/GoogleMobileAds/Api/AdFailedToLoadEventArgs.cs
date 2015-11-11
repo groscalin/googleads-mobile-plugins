@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using GoogleMobileAds.Common;
 
 namespace GoogleMobileAds.Api

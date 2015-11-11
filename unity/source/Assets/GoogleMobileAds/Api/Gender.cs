@@ -1,4 +1,4 @@
-namespace GoogleMobileAds.Api
+﻿namespace GoogleMobileAds.Api
 {
     // The gender of the user.
     public enum Gender

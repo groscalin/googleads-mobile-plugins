@@ -1,4 +1,4 @@
-using GoogleMobileAds.Api;
+﻿using GoogleMobileAds.Api;
 
 namespace GoogleMobileAds.Common {
     internal interface IGoogleMobileAdsBannerClient {
