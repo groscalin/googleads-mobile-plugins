@@ -6,8 +6,11 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.purchase.PlayStorePurchaseListener;
+import com.google.android.gms.ads.purchase.InAppPurchaseListener;
 
 import android.app.Activity;
+import android.content.Intent;
+
 import android.util.Log;
 
 /**
@@ -131,11 +134,31 @@ public class Interstitial {
     });
   }
 
-  /**
-   * Destroys the {@link InterstitialAd}.
-   */
+
+  public void setInAppPurchaseListener(final InAppPurchaseListener purchaseListener) {
+    activity.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        interstitial.setInAppPurchaseListener(purchaseListener);
+      }
+    });
+  }
+  
   public void destroy() {
-    // Currently there is no interstitial.destroy() method. This method is a placeholder in case
-    // there is any cleanup to do here in the future.
+    Log.d("Interstitial", "destroy is called!");
+
+    Intent intent = new Intent();
+    intent.setComponent(activity.getComponentName());
+    intent.addFlags(603979776);
+    activity.startActivity(intent);
+  }
+
+  public void close() {
+    if (interstitial.isLoaded()) {
+      Intent intent = new Intent();
+      intent.setComponent(activity.getComponentName());
+      intent.addFlags(603979776);
+      activity.startActivity(intent);
+    }
   }
 }
