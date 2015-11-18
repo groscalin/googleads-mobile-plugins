@@ -56,21 +56,21 @@ namespace GoogleMobileAds.Common
 
         public void ShowInterstitial() {
             //Debug.Log("Dummy ShowInterstitial");
-#if ADTEST
-            listener.FireAdOpened();
-            BitMango.NativeInterface.SystemAlert("AdMob.ShowInterstitial", "", "click", "close", (click)=>{
-                if(click)
-                    listener.FireAdLeftApplication();
-                listener.FireAdClosing();
-                listener.FireAdClosed();
-            });
-#else
-            listener.FireAdOpened();
-            TaskManager.DoSecondsAfter(()=>{
-                listener.FireAdClosing();
-                listener.FireAdClosed();
-            }, 1);
-#endif
+            if(BitMango.Profile.IsAdTest) {
+                listener.FireAdOpened();
+                BitMango.NativeInterface.SystemAlert("AdMob.ShowInterstitial", "", "click", "close", (click)=>{
+                    if(click)
+                        listener.FireAdLeftApplication();
+                    listener.FireAdClosing();
+                    listener.FireAdClosed();
+                });
+            } else {
+                listener.FireAdOpened();
+                TaskManager.DoSecondsAfter(()=>{
+                    listener.FireAdClosing();
+                    listener.FireAdClosed();
+                }, 1);
+            }
         }
 
         public void DestroyInterstitial() {

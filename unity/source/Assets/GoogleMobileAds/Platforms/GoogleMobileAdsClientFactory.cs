@@ -15,9 +15,15 @@ namespace GoogleMobileAds
                 // selected platform.
                 return new GoogleMobileAds.Common.DummyClient(listener);
             #elif UNITY_ANDROID
-                return new GoogleMobileAds.Android.AndroidBannerClient(listener);
+                if(BitMango.Profile.IsDummyAD)
+                    return new GoogleMobileAds.Common.DummyClient(listener);
+                else
+                    return new GoogleMobileAds.Android.AndroidBannerClient(listener);
             #elif UNITY_IPHONE
-                return new GoogleMobileAds.iOS.IOSBannerClient(listener);
+                if(BitMango.Profile.IsDummyAD)
+                    return new GoogleMobileAds.Common.DummyClient(listener);
+                else
+                    return new GoogleMobileAds.iOS.IOSBannerClient(listener);
             #else
                 return new GoogleMobileAds.Common.DummyClient(listener);
             #endif
@@ -31,9 +37,15 @@ namespace GoogleMobileAds
                 // selected platform.
                 return new GoogleMobileAds.Common.DummyClient(listener);
             #elif UNITY_ANDROID
-                return new GoogleMobileAds.Android.AndroidInterstitialClient(listener);
+                if(BitMango.Profile.IsDummyAD)
+                    return new GoogleMobileAds.Common.DummyClient(listener);
+                else
+                    return new GoogleMobileAds.Android.AndroidInterstitialClient(listener);
             #elif UNITY_IPHONE
-                return new GoogleMobileAds.iOS.IOSInterstitialClient(listener);
+                if(BitMango.Profile.IsDummyAD)
+                    return new GoogleMobileAds.Common.DummyClient(listener);
+                else
+                    return new GoogleMobileAds.iOS.IOSInterstitialClient(listener);
             #else
                 return new GoogleMobileAds.Common.DummyClient(listener);
             #endif
@@ -44,11 +56,20 @@ namespace GoogleMobileAds
             #if UNITY_EDITOR
                 return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
             #elif UNITY_ANDROID
-                return GoogleMobileAds.Android.AndroidBannerClient.GetBannerHeightInPixel(adSize);
+                if(BitMango.Profile.IsDummyAD)
+                    return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
+                else
+                    return GoogleMobileAds.Android.AndroidBannerClient.GetBannerHeightInPixel(adSize);
             #elif UNITY_IPHONE
-                return GoogleMobileAds.iOS.IOSBannerClient.GetBannerHeightInPixel(adSize);
+                if(BitMango.Profile.IsDummyAD)
+                    return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
+                else
+                    return GoogleMobileAds.iOS.IOSBannerClient.GetBannerHeightInPixel(adSize);
             #else
-                return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
+                if(BitMango.Profile.IsDummyAD)
+                    return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
+                else
+                    return GoogleMobileAds.Common.DummyClient.GetBannerHeightInPixel(adSize);
             #endif
         }
         
