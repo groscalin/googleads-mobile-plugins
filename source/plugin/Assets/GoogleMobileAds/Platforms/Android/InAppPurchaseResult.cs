@@ -28,12 +28,23 @@ namespace GoogleMobileAds.Android
             this.result = result;
         }
 
+        public void FinishPurchase() {
+            result.Call("finishPurchase");
+        }
+
         public string ProductId {
             get { return result.Call<string>("getProductId"); }
         }
 
-        public void RecordPlayBillingResolution(int billingResponseCode){
-            result.Call("recordPlayBillingResolution", billingResponseCode);
+        public bool IsSuccessful {
+            get {
+                AndroidJavaObject pluginUtils = new AndroidJavaObject(Utils.PluginUtilsClassName);
+                return pluginUtils.CallStatic<bool>("isResultSuccess", result);
+            }
+        }
+
+        public bool IsVerified {
+            get { return result.Call<bool>("isVerified"); }
         }
     }
 }

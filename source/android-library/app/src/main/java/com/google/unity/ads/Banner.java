@@ -237,4 +237,12 @@ public class Banner {
             }
         });
     }
+
+    public String getMediationAdapterClassName() {
+        if(adView == null) {
+            Log.w(PluginUtils.LOGTAG, "getMediationAdapterClassName.adview was not ready");
+            return "";
+        }
+        return adView.getMediationAdapterClassName();
+    }
 }

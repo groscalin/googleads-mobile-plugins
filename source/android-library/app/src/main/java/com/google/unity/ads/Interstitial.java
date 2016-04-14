@@ -173,4 +173,13 @@ public class Interstitial {
         // Currently there is no interstitial.destroy() method. This method is a placeholder in case
         // there is any cleanup to do here in the future.
     }
+
+    //scjoo ( scjoo@datawave.co.kr ) Last modified at : 2016.04.14 
+    public String getMediationAdapterClassName() {
+        if(interstitial == null) {
+            Log.w(PluginUtils.LOGTAG, "getMediationAdapterClassName.interstitial was not ready");
+            return "";
+        }
+        return interstitial.getMediationAdapterClassName();
+    }
 }

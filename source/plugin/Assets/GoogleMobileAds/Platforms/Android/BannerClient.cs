@@ -102,6 +102,12 @@ namespace GoogleMobileAds.Android
         }
 
         #endregion
+
+        //scjoo ( scjoo@datawave.co.kr ) Last modified at : 2016.04.14  
+        public string getMediationAdapterClassName() 
+        {
+            return bannerView.Call<string>("getMediationAdapterClassName");
+        }
     }
 }
 

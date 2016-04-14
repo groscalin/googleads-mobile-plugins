@@ -246,19 +246,3 @@ void GADURelease(GADUTypeRef ref) {
     [cache.references removeObjectForKey:[(__bridge NSObject *)ref gadu_referenceKey]];
   }
 }
-
-/// 
-int GADUGetBannerHeightInPixel(NSInteger width, NSInteger height) {
-    GADAdSize adSize;
-    if(width == 0 && height == 0) {
-        UIDeviceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
-        if (UIInterfaceOrientationIsPortrait(currentOrientation)) {
-            adSize = kGADAdSizeSmartBannerPortrait;
-        } else {
-            adSize = kGADAdSizeSmartBannerLandscape;
-        }
-    } else {
-        adSize = GADAdSizeFromCGSize(CGSizeMake(width, height));
-    }
-    return CGSizeFromGADAdSize(adSize).height * [UIScreen mainScreen].scale;
-}

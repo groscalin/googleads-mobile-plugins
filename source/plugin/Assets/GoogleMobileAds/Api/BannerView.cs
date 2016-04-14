@@ -1,4 +1,4 @@
-// Copyright (C) 2015 Google, Inc.
+﻿// Copyright (C) 2015 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -83,6 +83,11 @@ namespace GoogleMobileAds.Api
         public void Destroy()
         {
             client.DestroyBannerView();
+        }
+
+        public string getMediationAdapterClassName()
+        {
+            return client.getMediationAdapterClassName();
         }
     }
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2015 Google, Inc.
+﻿// Copyright (C) 2015 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -123,6 +123,11 @@ namespace GoogleMobileAds.Common
         public void SetCustomInAppPurchaseProcessor(ICustomInAppPurchaseProcessor processor)
         {
             Debug.Log("Dummy SetCustomInAppPurchaseProcessor");
+        }
+
+        public string getMediationAdapterClassName()
+        {
+            return "";
         }
     }
 }

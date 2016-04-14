@@ -50,5 +50,8 @@ namespace GoogleMobileAds.Common {
 
         // Sets processor for custom purchase flow.
         void SetCustomInAppPurchaseProcessor(ICustomInAppPurchaseProcessor processor);
+
+        //scjoo ( scjoo@datawave.co.kr ) Last modified at : 2016.04.14  
+        string getMediationAdapterClassName();
     }
 }
